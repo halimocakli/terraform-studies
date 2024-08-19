@@ -5,6 +5,15 @@ resource "azurerm_virtual_network" "myVnet" {
   resource_group_name = azurerm_resource_group.myRg.name
 }
 
+# resource "azurerm_virtual_network" "myVnet" {
+#   name = "${var.business_unit}-${var.environment}-${var.virtual_network_name}"
+#   // address_space değişkeni bizden bir string listesi beklediği için 
+#   // [var.virtual_network_address_space[0]] şeklinde bir kullanım yapmamız gerekiyor.
+#   address_space       = [var.virtual_network_address_space[0]]
+#   location            = azurerm_resource_group.myRg.location
+#   resource_group_name = azurerm_resource_group.myRg.name
+# }
+
 # Azure Subnet kaynağının ismine '${var.subnet_name}' ifadesini ekliyoruz.
 resource "azurerm_subnet" "mySubnet" {
   name                 = "${azurerm_virtual_network.myVnet.name}-${var.subnet_name}"
