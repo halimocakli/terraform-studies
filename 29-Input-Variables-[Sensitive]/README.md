@@ -152,7 +152,7 @@ db_auto_grow_enabled = true
 ```
 
 ## Step-08: secrets.tfvars
-
+***'secrets.tfvars' dosyası erişilebilir repoya aktarılmadığı için lokalde çalışırken yeniden oluşturulması gerekiyor.***
 ```t
 # Database Secure Variables
 db_username = "mydbadmin"
