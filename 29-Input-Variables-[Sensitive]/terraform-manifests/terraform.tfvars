@@ -3,8 +3,8 @@ business_unit = "it"
 environment   = "dev"
 
 # Resource Group Variables
-resource_group_name     = "rg"
-resource_group_location = "eastus"
+resoure_group_name     = "rg"
+resoure_group_location = "eastus"
 
 # DB Variables
 db_name              = "mydb201"

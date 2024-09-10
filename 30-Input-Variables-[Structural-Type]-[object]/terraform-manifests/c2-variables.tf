@@ -33,33 +33,46 @@ variable "common_tags" {
     "Tag1"    = "Azure"
   }
 }
+
 # 6. Azure MySQL DB Name (Variable Type: String)
 variable "db_name" {
   description = "Azure MySQL Database DB Name"
   type        = string
 }
+
 # 7. Azure MySQL DB Username (Variable Type: Sensitive String)
 variable "db_username" {
   description = "Azure MySQL Database Administrator Username"
   type        = string
   sensitive   = true
 }
+
 # 8. Azure MySQL DB Password (Variable Type: Sensitive String)
 variable "db_password" {
   description = "Azure MySQL Database Administrator Password"
   type        = string
   sensitive   = true
 }
+
 # 9. Azure MySQL DB Storage in MB (Variable Type: Number)
 variable "db_storage_mb" {
   description = "Azure MySQL Database Storage in MB"
   type        = number
 }
+
 # 10. Azure MYSQL DB auto_grow_enabled (Variable Type: Boolean)
 variable "db_auto_grow_enabled" {
   description = "Azure MySQL Database - Enable or Disable Auto Grow Feature"
   type        = bool
 }
 
-
-
+# 11. Azure MySQL DB Threat Detection Policy (Variable Type: object)
+variable "tdpolicy" {
+  description = "Azure MySQL DB Threat Detection Policy"
+  type = object({
+    enabled              = bool,
+    retention_days       = number
+    email_account_admins = bool
+    email_addresses      = list(string)
+  })
+}
