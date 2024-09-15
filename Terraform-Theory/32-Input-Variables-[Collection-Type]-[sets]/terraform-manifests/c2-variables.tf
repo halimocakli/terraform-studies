@@ -28,3 +28,9 @@ variable "virtual_network_name" {
   type        = string
   default     = "myVnet"
 }
+
+variable "subscription_id" {
+  description = "Azure Subscription ID"
+  type        = string
+  sensitive   = true
+}

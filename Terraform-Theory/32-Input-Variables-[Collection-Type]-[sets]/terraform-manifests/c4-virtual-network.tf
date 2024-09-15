@@ -9,7 +9,7 @@ resource "azurerm_virtual_network" "myvnet" {
 
 # Create Subnet
 resource "azurerm_subnet" "mysubnet" {
-  for_each = var.environment
+  for_each             = var.environment
   name                 = "${var.business_unit}-${each.key}-${var.virtual_network_name}-mysubnet"
   resource_group_name  = azurerm_resource_group.myrg[each.key].name
   virtual_network_name = azurerm_virtual_network.myvnet[each.key].name
@@ -18,13 +18,12 @@ resource "azurerm_subnet" "mysubnet" {
 
 # Create Public IP Address
 resource "azurerm_public_ip" "mypublicip" {
-  for_each = var.environment
+  for_each            = var.environment
   name                = "${var.business_unit}-${each.key}-mypublicip"
   resource_group_name = azurerm_resource_group.myrg[each.key].name
   location            = azurerm_resource_group.myrg[each.key].location
   allocation_method   = "Static"
-  #domain_name_label = "app1-vm-${random_string.myrandom[each.key].id}"
-  domain_name_label = "app1-vm-${each.key}-${random_string.myrandom[each.key].id}"
+  domain_name_label   = "app1-vm-${each.key}-${random_string.myRandomString[each.key].id}"
   tags = {
     environment = each.key
   }

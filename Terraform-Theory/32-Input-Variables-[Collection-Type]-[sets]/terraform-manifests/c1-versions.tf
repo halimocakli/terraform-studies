@@ -14,11 +14,15 @@ terraform {
 
 provider "azurerm" {
   features {}
+
+  subscription_id = var.subscription_id
+  use_cli         = true
 }
 
 resource "random_string" "myRandomString" {
-  length  = 6
-  upper   = false
-  special = false
-  numeric = false
+  for_each = var.environment
+  length   = 6
+  upper    = false
+  special  = false
+  numeric  = false
 }
