@@ -30,7 +30,7 @@ variable "virtual_network_name" {
 }
 
 variable "subscription_id" {
-  description = "4c28dff0-4fa6-472e-ad04-37720fdaa028"
+  description = "Azure Subscription ID"
   type        = string
   sensitive   = true
 }
