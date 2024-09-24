@@ -1,0 +1,5 @@
+business_unit        = "it"
+environment          = "dev"
+resource_group_name  = "rg"
+virtual_network_name = "vnet"
+subscription_id      = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
